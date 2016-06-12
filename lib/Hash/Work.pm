@@ -181,8 +181,10 @@ sub first_arrays_to_hash{ # \%hashref (\%hashref)
 # key and a 1 as value. Returns context specific a reference to a hash
 # or a hash.
 sub array_to_hash { # \%hashref (@array|\@arrayref)
-    my @array = @_ if ref @_ eq '';
-    my $arrayref = shift if ref $_[0] eq 'ARRAY';
+    my @array;
+    @array = @_ if ref @_ eq '';
+    my $arrayref;
+    $arrayref = shift if ref $_[0] eq 'ARRAY';
     my %returned_hash;
 
     if( defined $arrayref ) {
